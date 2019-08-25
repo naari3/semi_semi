@@ -14,6 +14,7 @@
   "author": "naari3 <naari.named@gmail.com>",
   "license": "ISC",
   "dependencies": {
-    "micro": "^9.3.4"
+    "micro": "^9.3.4",
+    "microrouter": "^3.1.3"
   }
 }
