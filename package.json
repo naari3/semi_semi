@@ -4,12 +4,16 @@
   "description": "（；＿；）",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "micro"
   },
   "repository": {
     "type": "git",
     "url": "yes"
   },
   "author": "naari3 <naari.named@gmail.com>",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "micro": "^9.3.4"
+  }
 }
