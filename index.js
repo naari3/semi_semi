@@ -4,9 +4,15 @@ const makeSad = (count) => `（${'；＿'.repeat(count * 6 > 268435440 ? 4473924
 
 const parsePositiveInt = (str) => Math.abs(parseInt(str, 10))
 
+let i = 0;
+
 const semi = async (req, res) => {
   res.setHeader('Content-type', 'text/plain; charset=UTF-8')
-  res.end(makeSad(parsePositiveInt(req.params.count) || 2))
+  if (req.params.count !== "naa") {
+    res.end(makeSad(parsePositiveInt(req.params.count) || 2))
+  } else {
+    res.end((i++).toString());
+  }
 }
 
 module.exports = router(get('/:count', semi), get('/*', semi))
