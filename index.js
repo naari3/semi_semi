@@ -5,13 +5,10 @@ const parsePositiveInt = str => Math.abs(parseInt(str, 10));
 const memo = {};
 const makeSad = count => {
   const validatedCount = Math.min(777777, count);
-  if (memo[validatedCount]) {
-    return memo[validatedCount];
-  } else {
-    const result = `（${"；＿".repeat(validatedCount).slice(0, -1)}）`;
-    memo[validatedCount] = result;
-    return result;
-  }
+  return (
+    memo[validatedCount] ||
+    (memo[validatedCount] = `（${"；＿".repeat(validatedCount).slice(0, -1)}）`)
+  );
 };
 
 const semi = async (req, res) => {
