@@ -8,7 +8,7 @@ const parsePositiveInt = str => Math.abs(parseInt(str, 10));
 const memo = {};
 const memoize = fn => {
   return arg => {
-    const count = Math.min(777777, count);
+    const count = Math.min(777777, arg);
     if (memo[count]) {
       return memo[count];
     } else {
