@@ -6,7 +6,7 @@
     { "src": "index.js", "use": "@now/node" }
   ],
   "routes": [
-    { "src": "^favicon.ico$", "dest": "/public/favicon.ico" },
-    { "src": "(.*)", "dest": "index.js" }
+    { "src": "/favicon.ico$", "dest": "/public/favicon.ico" },
+    { "src": "/.*", "dest": "index.js" }
   ]
 }
