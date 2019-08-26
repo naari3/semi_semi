@@ -1,13 +1,13 @@
 const { router, get } = require('microrouter')
 
-const makeSad = (count) => `（${'；＿'.repeat(count * 6 > 268435440 ? 44739240 : count).slice(0, -1)}）`
+const makeSad = (count) => `（${'；＿'.repeat(Math.min(777777, count)).slice(0, -1)}）`
 
 const parsePositiveInt = (str) => Math.abs(parseInt(str, 10))
 
 const memo = {}
 const memoize = (fn) => {
   return (arg) => {
-    const count = arg * 6 > 268435440 ? 4473920 : arg 
+    const count = Math.min(777777, count)
     if (memo[count]) {
       return memo[count]
     } else {
