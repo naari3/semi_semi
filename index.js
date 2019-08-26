@@ -4,15 +4,25 @@ const makeSad = (count) => `（${'；＿'.repeat(count * 6 > 268435440 ? 4473924
 
 const parsePositiveInt = (str) => Math.abs(parseInt(str, 10))
 
-let i = 0;
+const memo = {}
+const memoize = (fn) => {
+  return (arg) => {
+    const count = arg * 6 > 268435440 ? 4473920 : arg 
+    if (memo[count]) {
+      return memo[count]
+    } else {
+      const result = fn(count)
+      memo[count] = result
+      return result
+    }
+  }
+}
+
+const memoizedMakeSad = memoize(makeSad)
 
 const semi = async (req, res) => {
   res.setHeader('Content-type', 'text/plain; charset=UTF-8')
-  if (req.params.count !== "naa") {
-    res.end(makeSad(parsePositiveInt(req.params.count) || 2))
-  } else {
-    res.end((i++).toString());
-  }
+  res.end(memoizedMakeSad(parsePositiveInt(req.params.count) || 2))
 }
 
 module.exports = router(get('/:count', semi), get('/*', semi))
